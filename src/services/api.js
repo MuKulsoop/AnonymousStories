@@ -1,5 +1,6 @@
 import axios from "axios"
 import { API_NOTIFICATION_MESSAGES, SERVICE_URLS } from "../constants/config.js"
+import { getAccessToken } from "../utils/accessToken.js"
 const API_URL = "http://localhost:8000"
 
 const axiosInstance = axios.create(
@@ -7,7 +8,8 @@ const axiosInstance = axios.create(
         baseURL: API_URL,
         timeout: 10000,
         headers: {
-            "content-type": "application/json"
+            "Accept": "application/json, form-data", 
+            "Content-Type": "application/json"
         }
     }
 )
@@ -81,6 +83,9 @@ for( const [key, value] of Object.entries(SERVICE_URLS)) {
         url: value.url,
         responseType: value.responseType,
         data: body,
+        headers: {
+            authorization: getAccessToken()
+        }
     })
 }
 export { API }

@@ -14,7 +14,7 @@ const Home = () => {
                     <Categories />
                 </Grid>
                 <Grid container item lg={10} sm={10} xs={12}>
-                    Post
+                    
                 </Grid>
             </Grid>
         </div>
