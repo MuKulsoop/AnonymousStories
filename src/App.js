@@ -10,6 +10,7 @@ import Login from "./components/account/Login";
 import Home from "./components/Home";
 import Header from './components/header/Header';
 import CreatePost from "./components/create/CreatePost";
+import DetailView from './components/details/details';
 
 const PrivateRoute = ({isAuthenticated}) => {
   console.log(isAuthenticated)
@@ -39,8 +40,11 @@ function App() {
               <Route path='/' element={<PrivateRoute isAuthenticated={isAuthenticated} />}>
                 <Route path='/' element={<Home />} />              
               </Route>
-              <Route path='/' element={<PrivateRoute isAuthenticated={isAuthenticated} />}>
+              <Route path='/create' element={<PrivateRoute isAuthenticated={isAuthenticated} />}>
                 <Route path='/create' element={<CreatePost />} />              
+              </Route>
+              <Route path='/details/:id' element={<PrivateRoute isAuthenticated={isAuthenticated} />}>
+                <Route path='/details/:id' element={<DetailView  />} />              
               </Route>
             </Routes>
           </div>
