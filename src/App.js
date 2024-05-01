@@ -11,6 +11,7 @@ import Home from "./components/Home";
 import Header from './components/header/Header';
 import CreatePost from "./components/create/CreatePost";
 import DetailView from './components/details/details';
+import UpdatePost from './components/create/UpdatePost';
 
 const PrivateRoute = ({isAuthenticated}) => {
   console.log(isAuthenticated)
@@ -45,6 +46,9 @@ function App() {
               </Route>
               <Route path='/details/:id' element={<PrivateRoute isAuthenticated={isAuthenticated} />}>
                 <Route path='/details/:id' element={<DetailView  />} />              
+              </Route>
+              <Route path='/update/:id' element={<PrivateRoute isAuthenticated={isAuthenticated} />}>
+                <Route path='/update/:id' element={<UpdatePost  />} />              
               </Route>
             </Routes>
           </div>

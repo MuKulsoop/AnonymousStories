@@ -87,7 +87,7 @@ for( const [key, value] of Object.entries(SERVICE_URLS)) {
         method: value.method,
         url: value.url,
         responseType: value.responseType,
-        data: body,
+        data: value.method === 'DELETE' ? {} : body,
         headers: {
             authorization: getAccessToken()
         },
