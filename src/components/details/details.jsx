@@ -5,6 +5,9 @@ import { useEffect, useState, useContext } from "react"
 import { useParams, Link, useNavigate } from "react-router-dom"
 import { API } from "../../services/api"
 import { DataContext } from "../../context/DataProvider"
+import Comments from "./comments/comments";
+
+
 const Container = styled(Box)(({ theme }) => ({
     margin: ' 50px 100px ',
     [theme.breakpoints.down('md')] : {
@@ -103,7 +106,7 @@ const DetailView = () => {
                 </Typography>
             </Author>
                 <Description> { post.description }</Description>
-
+                <Comments post={ post } />
         </Container>
     )
 }
